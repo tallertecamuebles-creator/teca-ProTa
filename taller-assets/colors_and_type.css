@@ -1,0 +1,279 @@
+/* =========================================================================
+   TECA — Design Tokens
+   Carpintería y diseño para el hogar.
+   Palette by Studio Vaia (official).
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+:root {
+  /* ---------------------------------------------------------------------
+     COLOR — official Studio Vaia palette
+     EARTH · MOSS · SAND · ALMOND · SAGE
+     --------------------------------------------------------------------- */
+  --c-earth:   #95714F;   /* warm tan brown — primary wood tone */
+  --c-moss:    #8C916C;   /* muted olive — deeper natural */
+  --c-sand:    #C7AF94;   /* warm beige — mid-tone */
+  --c-almond:  #EADED0;   /* light cream — primary surface */
+  --c-sage:    #ACB087;   /* light sage — secondary natural */
+
+  /* Extended (derived from the palette, kept narrow & on-brand) */
+  --c-almond-light: #F4ECDF;   /* lifted almond, for paper highlight */
+  --c-earth-deep:   #6B4F35;   /* darker walnut wash from EARTH */
+  --c-ink:          #2E2218;   /* near-black derived from EARTH; never pure black */
+  --c-ink-soft:     #5A4634;   /* secondary text */
+  --c-ink-mute:     #8C7B68;   /* tertiary text */
+
+  /* ---------------------------------------------------------------------
+     COLOR — semantic role tokens
+     Components should reference THESE, not the palette names above.
+     --------------------------------------------------------------------- */
+  /* Surfaces */
+  --bg-1:           var(--c-almond);      /* primary surface */
+  --bg-2:           var(--c-almond-light);/* paper highlight */
+  --bg-3:           var(--c-sand);        /* inlay / accent surface */
+  --bg-inverse:     var(--c-ink);         /* dark surface */
+  --bg-natural:     var(--c-sage);        /* green inlay (rare) */
+  --bg-deep-natural:var(--c-moss);        /* deep green inlay (rare) */
+
+  /* Ink (foreground) */
+  --fg-1:           var(--c-ink);
+  --fg-2:           var(--c-ink-soft);
+  --fg-3:           var(--c-ink-mute);
+  --fg-on-dark:     var(--c-almond);
+
+  /* Borders */
+  --border-hair:    rgba(46, 34, 24, 0.16);
+  --border-strong:  var(--c-ink);
+
+  /* Interactive */
+  --link:           var(--c-ink);
+  --link-hover:     var(--c-earth-deep);  /* on hover, ink → walnut */
+  --accent:         var(--c-earth);       /* the only saturated accent in the system */
+  --accent-hover:   var(--c-earth-deep);
+
+  /* Signals — drawn from the palette, not invented */
+  --signal-ok:      var(--c-moss);        /* validation / success */
+  --signal-warn:    var(--c-earth);       /* attention */
+  --signal-error:   var(--c-earth-deep);  /* errors */
+
+  /* ---------------------------------------------------------------------
+     TYPOGRAPHY — families
+     - Display: Cormorant Garamond (light/regular, italic) for mixed-case headlines
+     - Wordmark: Cinzel (Roman caps) — closest free match for Felix Titling Std,
+       which the studio uses for the TECA wordmark.
+     - UI / body: Jost (geometric humanist sans)
+     --------------------------------------------------------------------- */
+  --font-display:    "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --font-wordmark:   "Cinzel", "Felix Titling", "Trajan Pro", Georgia, serif;
+  --font-sans:       "Jost", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono:       ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Type scale — modular */
+  --fs-xs:           12px;
+  --fs-sm:           14px;
+  --fs-base:         16px;
+  --fs-md:           18px;
+  --fs-lg:           21px;
+  --fs-xl:           28px;
+  --fs-2xl:          40px;
+  --fs-3xl:          56px;
+  --fs-4xl:          80px;
+  --fs-5xl:          112px;
+
+  --lh-tight:        1.05;
+  --lh-snug:         1.2;
+  --lh-normal:       1.5;
+  --lh-loose:        1.7;
+
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.12em;
+  --tracking-mark:   0.34em;   /* the TECA wordmark tracking */
+
+  --weight-light:    300;
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semi:     600;
+
+  /* ---------------------------------------------------------------------
+     SPACING — 4px base, doubled scale
+     --------------------------------------------------------------------- */
+  --space-0:    0px;
+  --space-1:    4px;
+  --space-2:    8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   24px;
+  --space-6:   32px;
+  --space-7:   48px;
+  --space-8:   64px;
+  --space-9:   96px;
+  --space-10: 128px;
+
+  /* ---------------------------------------------------------------------
+     RADII — the system is essentially square.
+     --------------------------------------------------------------------- */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;   /* rare — modals only */
+  --radius-pill: 999px; /* rare — tags */
+
+  /* ---------------------------------------------------------------------
+     SHADOWS — sparse. Two tokens only.
+     --------------------------------------------------------------------- */
+  --shadow-none:    none;
+  --shadow-rest:    0 1px 2px rgba(46,34,24,0.06), 0 8px 24px rgba(46,34,24,0.04);
+  --shadow-overlay: 0 4px 12px rgba(46,34,24,0.10), 0 24px 48px rgba(46,34,24,0.08);
+
+  /* ---------------------------------------------------------------------
+     MOTION — slow, ease-out, never bouncy.
+     --------------------------------------------------------------------- */
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in:     cubic-bezier(0.55, 0, 0.68, 0.53);
+  --dur-fast:    120ms;
+  --dur-base:    240ms;
+  --dur-slow:    600ms;
+
+  /* ---------------------------------------------------------------------
+     LAYOUT
+     --------------------------------------------------------------------- */
+  --container-max: 1280px;
+  --header-h:        72px;
+  --readable-w:      62ch;
+}
+
+/* ===========================================================================
+   SEMANTIC ELEMENT STYLES
+   =========================================================================== */
+
+html, body {
+  background: var(--bg-1);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-light);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-light);
+  font-size: var(--fs-4xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-5);
+  text-wrap: balance;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-light);
+  font-size: var(--fs-3xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--fs-2xl);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--space-3);
+}
+
+h5, .h5 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--fs-md);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin: 0 0 var(--space-3);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: var(--weight-light);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--tracking-wide);
+  color: var(--fg-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.eyebrow::before, .eyebrow::after { content: "—"; opacity: 0.7; }
+
+p {
+  margin: 0 0 var(--space-4);
+  max-width: var(--readable-w);
+  text-wrap: pretty;
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-loose);
+  color: var(--fg-2);
+}
+
+small, .caption {
+  font-size: var(--fs-sm);
+  color: var(--fg-2);
+  line-height: var(--lh-normal);
+}
+
+.overline {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-hair);
+  transition: color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
+
+.wordmark {
+  font-family: var(--font-wordmark);
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-mark);
+  text-indent: var(--tracking-mark); /* compensate for trailing tracking */
+}
+
+.tick-ornament {
+  display: block;
+  width: 1px;
+  height: 28px;
+  background: var(--c-ink);
+  margin: 0 auto var(--space-5);
+  opacity: 0.85;
+}
+
+code, pre { font-family: var(--font-mono); font-size: 0.92em; }
+hr { border: 0; border-top: 1px solid var(--border-hair); margin: var(--space-7) 0; }

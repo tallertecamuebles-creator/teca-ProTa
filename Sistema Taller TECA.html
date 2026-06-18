@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>TECA · Sistema del taller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="taller-assets/colors_and_type.css">
+  <style>
+    /* Viraje de la app hacia los verdes de la paleta TECA (moss/sage),
+       que en el sitio y el formulario casi no se usan. */
+    :root {
+      --accent: var(--c-moss);
+      --accent-hover: #6f7456;
+      --link-hover: #6f7456;
+    }
+    html, body { margin: 0; padding: 0; }
+    body { background: var(--c-almond); color: var(--fg-1); min-height: 100vh; }
+    * { box-sizing: border-box; }
+
+    /* Fondo: foto del taller fuera de foco + tinte verde-crema (divs reales) */
+    #bg-photo {
+      position: fixed; inset: 0; z-index: 0;
+      background: #2E2218 url("taller-assets/bg-taller-1920.jpg") center/cover no-repeat;
+      filter: blur(0.5px) saturate(1.06) brightness(1.02);
+      transform: scale(1.06);
+    }
+    #bg-tint {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(180deg,
+        rgba(244,236,223,0.72) 0%,
+        rgba(238,226,205,0.54) 30%,
+        rgba(226,206,176,0.42) 70%,
+        rgba(210,188,150,0.46) 100%);
+    }
+    #root { position: relative; z-index: 1; }
+
+    #root:empty::before { content: ""; display: block; height: 100vh; }
+    button { font-family: inherit; }
+    ::selection { background: var(--c-moss); color: var(--c-almond); }
+    @keyframes tecaFade { from { opacity: 0; } to { opacity: 1; } }
+    input[type="range"] { height: 22px; }
+    input::placeholder, textarea::placeholder { color: var(--fg-3); opacity: 0.8; }
+    select option { background: var(--c-almond-light); color: var(--c-ink); }
+  </style>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="bg-photo"></div>
+  <div id="bg-tint"></div>
+  <div id="root"></div>
+
+  <script src="taller-src/store.js"></script>
+  <script type="text/babel" src="taller-src/components.jsx"></script>
+  <script type="text/babel" src="taller-src/ProjectForm.jsx"></script>
+  <script type="text/babel" src="taller-src/ProjectDetail.jsx"></script>
+  <script type="text/babel" src="taller-src/Views.jsx"></script>
+  <script type="text/babel" src="taller-src/App.jsx"></script>
+</body>
+</html>
